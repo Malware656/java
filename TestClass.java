@@ -22,3 +22,5 @@ public class TestClass {
       }
     }
 }
+
+// To Run javac TestClass.java && java -DuserName=someName -Dage=23 TestClass 
