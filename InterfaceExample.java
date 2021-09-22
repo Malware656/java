@@ -1,19 +1,59 @@
 class SecondInterface{
 
-    private SomeInterface interface1;
+    private SomeInterface mInterface;
 
     // Assingning the param interface value to current class interface
-    public SecondInterface(SomeInterface interface1){
-        this.interface1 = interface1;
+    public SecondInterface(SomeInterface mInterface){
+        this.mInterface = mInterface;
     }
 
     // Performing the task of Main class interface from Secondary class
     public void performTasks(){
-        interface1.executeSomething("Called form Secondary");
-        interface1.killSomethin(true);
+        mInterface.executeSomething("Called form Secondary");
+        mInterface.killSomethin(true);
     }
     
 }
+
+class InterfaceExample implements SomeInterface{
+    private static SomeInterface mInterface;
+    public static void main(String[] args) {
+        // Creating a new instance of interface
+        mInterface = new InterfaceExample();
+        
+        // Passing interface to secondary
+        SecondInterface secondInterface = new SecondInterface(mInterface);
+        secondInterface.performTasks();
+        System.out.println();
+        // Calling interface from current class
+        mInterface.executeSomething("Called from Main");
+        mInterface.killSomethin(false);
+        System.out.println();
+
+        new ThirdInterface();
+        
+    }
+
+
+    @Override
+    public void executeSomething(String arg) {
+        System.out.println(arg);        
+    }
+
+    @Override
+    public void killSomethin(boolean canKill) {
+        if(canKill){
+            System.out.println("Killed someone");
+        }
+        else{
+            System.out.println("Cannot kill");
+            mInterface.permisssionError();
+        }
+    }
+
+}
+
+
 class ThirdInterface implements SomeInterface{
 
     public ThirdInterface(){
@@ -37,48 +77,11 @@ class ThirdInterface implements SomeInterface{
     }
 
 }
-class InterfaceExample{
-    private static SomeInterface someInterface;
-    public static void main(String[] args) {
-        // Creating a new instance of interface
-        someInterface = new SomeInterface(){
-            @Override
-            public void executeSomething(String arg) {
-                System.out.println(arg);        
-            }
-
-            @Override
-            public void killSomethin(boolean canKill) {
-                if(canKill){
-                    System.out.println("Killed someone");
-                }
-                else{
-                    System.out.println("Cannot kill");
-                    someInterface.permisssionError();
-                }
-            }
-        };
-
-        // Passing interface to secondary
-        SecondInterface secondInterface = new SecondInterface(someInterface);
-        secondInterface.performTasks();
-        System.out.println();
-        // Calling interface from current class
-        someInterface.executeSomething("Called from Main");
-        someInterface.killSomethin(false);
-        System.out.println();
-
-        new ThirdInterface();
-        
-    }
-
-}
-
 interface SomeInterface{
     
     void executeSomething(String arg);
     void killSomethin(boolean canKill);
-    // Const methods
+
     default void permisssionError(){
         System.out.println("Permission Error!");
     }

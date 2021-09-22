@@ -4,23 +4,24 @@ class Encapsulation{
     public static void main(String[] args) {
 
         PrintStream stream = System.out;
-        SomeClass someClass = new SomeClass();
-        someClass.setAge(22);
-        someClass.setName("Some user's name");
-        someClass.setGender("Male");
+        DataClass dataClass = new DataClass();
+        dataClass.setAge(22);
+        dataClass.setName("Some user's name");
+        dataClass.setGender("Male");
 
-        stream.println(someClass.getName());
-        stream.println(someClass.getAge());
-        stream.println(someClass.getGender());
+        stream.println(dataClass.getName());
+        stream.println(dataClass.getAge());
+        stream.println(dataClass.getGender());
     }
 }
 
-class SomeClass{
+class DataClass{
 
     private String name;
     private int age;
     private String gender;
 
+    // getters
     public String getName() {
         return name;
     }
@@ -30,7 +31,7 @@ class SomeClass{
     public String getGender() {
         return gender;
     }
-
+    // setters
     public void setName(String name) {
         this.name = name;
     }

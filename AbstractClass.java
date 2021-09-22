@@ -1,17 +1,18 @@
-abstract class SomeClosedClass{
+abstract class SomeAbstractClass{
     abstract void doSomething();
     abstract void doAnotherThing();
 
     void testFunc(){};
 }
 
-class SomeAnotherClass extends SomeClosedClass implements TestInterFace{
+class SecondClass extends SomeAbstractClass implements TestInterFace{
 
 
     // Must to be implemented methods
     @Override
     void doSomething(){
         System.out.println("Abstract call!");
+        doAnotherThing();
     }
 
     @Override
@@ -34,7 +35,7 @@ class SomeAnotherClass extends SomeClosedClass implements TestInterFace{
 
 public class AbstractClass {
     public static void main(String[] args) {
-        SomeClosedClass anotherClass = new SomeAnotherClass();
+        SomeAbstractClass anotherClass = new SecondClass();
         anotherClass.doSomething();
     }
 }
