@@ -1,4 +1,3 @@
-package ENCAPSULATION;
 import java.io.PrintStream;
 
 class Encapsulation{
