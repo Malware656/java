@@ -1,4 +1,3 @@
-package POLYMORPHISM;
 class OverLoadableMethod{
     // Create some methods with different params
     void someFunc(){}

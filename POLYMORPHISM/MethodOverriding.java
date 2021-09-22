@@ -1,4 +1,3 @@
-package POLYMORPHISM;
 class PrimaryClass{
     // Base methods
     void doSomething(){

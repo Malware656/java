@@ -1,4 +1,3 @@
-package POLYMORPHISM;
 public class ConstOverloading {
     public static void main(String[] args) {
         Overloadable load_one = new Overloadable();
