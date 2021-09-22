@@ -6,7 +6,7 @@ class OverridableOne{
 }
 
 class OverridableTwo extends OverridableOne{
-
+    @Override
     void doSomething(){
         System.out.println("Doing some func in overridable two!");
     }
@@ -20,3 +20,4 @@ public class MethodOverriding {
         overridableOne.doSomething();
     }   
 }
+    

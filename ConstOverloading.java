@@ -13,15 +13,16 @@ class ContructorOverLoading{
     String data2;
     String data3;
 
-    ContructorOverLoading(){
-
-    }
+    ContructorOverLoading(){}
 
     ContructorOverLoading(String data1, String data2){
-
+        this.data1 = data1;
+        this.data2 = data2;
     }
 
     ContructorOverLoading(String data1, String data2, String data3){
-
+        this.data1 = data1;
+        this.data2 = data2;
+        this.data3 = data3;
     }
 }

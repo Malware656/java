@@ -1,4 +1,4 @@
-public class TestClass {
+public class CliTestClass {
     public static void main(String[] args) {
       String name;
       int age;
@@ -23,4 +23,4 @@ public class TestClass {
     }
 }
 
-// To Run javac TestClass.java && java -DuserName=someName -Dage=23 TestClass 
+// To Run javac CliTestClass.java && java -DuserName=someName -Dage=23 CliTestClass 

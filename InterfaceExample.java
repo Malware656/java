@@ -54,6 +54,7 @@ class InterfaceExample{
                 }
                 else{
                     System.out.println("Cannot kill");
+                    someInterface.permisssionError();
                 }
             }
         };
@@ -77,4 +78,11 @@ interface SomeInterface{
     
     void executeSomething(String arg);
     void killSomethin(boolean canKill);
+    // Const methods
+    default void permisssionError(){
+        System.out.println("Permission Error!");
+    }
+    default void authenticationError(){
+        System.out.println("Permission Error!");
+    }
 }
