@@ -1,3 +1,4 @@
+package ABSTRACTION;
 abstract class SomeAbstractClass{
     abstract void doSomething();
     abstract void doAnotherThing();

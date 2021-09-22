@@ -1,3 +1,4 @@
+package ABSTRACTION;
 class SecondInterface{
 
     private SomeInterface mInterface;
