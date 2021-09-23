@@ -1,14 +1,14 @@
 class PrimaryClass{
     // Base methods
     void doSomething(){
-        System.out.println("Doing some func in overridable one!");
+        System.out.println("Doing some func in PrimaryClass!");
     }
 }
 
 class SecondaryClass extends PrimaryClass{
     @Override // Overriding the pre-implemented method and modifying it's contents
     void doSomething(){
-        System.out.println("Doing some func in overridable two!");
+        System.out.println("Doing some func in SecondaryClass!");
     }
 }
 public class MethodOverriding {

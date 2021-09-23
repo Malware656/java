@@ -18,7 +18,7 @@ class Validate{
 }
 public class ThrowEx {
     public static void main(String[] args) {
-        if(doValidate() == 0){
+        if(!doValidate()){
             System.out.println("Authentication Failed");
         }
         else{
@@ -26,11 +26,11 @@ public class ThrowEx {
         };
     }
 
-    static int doValidate(){
+    static boolean doValidate(){
         try{
             Validate val = new Validate();
             val.checkUserNamePassword("gokul656", "pssword");
-            return 1;
+            return true;
         }
         catch(AuthenticationException e){
             /* 
@@ -42,7 +42,7 @@ public class ThrowEx {
         finally{
             System.out.println("Process Finished");
         }
-        return 0;
+        return false;
     }
 }
 

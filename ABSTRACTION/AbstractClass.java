@@ -19,7 +19,7 @@ class SecondClass extends SomeAbstractClass implements TestInterFace{
     void doAnotherThing() {
         System.out.println("Abstract call to doAnother thing!");
     }
-
+    // Implemented for Test Interdface
     @Override
     public void someFunc() {
         System.out.println("Abstract call with interface to someFunc!");
