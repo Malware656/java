@@ -1,4 +1,5 @@
 class Validate{
+    
     void checkUserNamePassword(String username, String password) throws AuthenticationException{
         if(username.length() <= 5){
             throw new AuthenticationException(AuthenticationException.ErrorMessages.INVALID_USERNAME, 403);
@@ -54,7 +55,6 @@ class AuthenticationException extends Throwable{
     enum ErrorMessages{INCORRECT_PASSWORD, INVALID_USERNAME, INCORRECT_USERNAME};
 
     public AuthenticationException(ErrorMessages message, int code){
-
         this.message = message;
         this.code = code;
     }
