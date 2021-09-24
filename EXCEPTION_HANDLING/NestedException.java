@@ -1,5 +1,3 @@
-import java.util.logging.Logger;
-
 public class NestedException {
     public static void main(String[] args) {
         int x = 10;

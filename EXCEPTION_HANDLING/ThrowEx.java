@@ -19,7 +19,7 @@ class Validate{
 public class ThrowEx {
     public static void main(String[] args) {
         if(!doValidate()){
-            System.out.println("Authentication Failed");
+            System.err.println("Authentication Failed");
         }
         else{
             System.out.println("Authentication Successful");
@@ -37,7 +37,7 @@ public class ThrowEx {
                 Handling multiple exceptions messages with AuthenticationException 
                 ( One class with multiple messages )
             */
-            System.out.printf("%s - ERROR CODE: %d\n", e.message, e.code);
+            System.err.printf("%s - ERROR CODE: %d\n", e.message, e.code);
         }
         finally{
             System.out.println("Process Finished");
