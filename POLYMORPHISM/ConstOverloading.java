@@ -1,8 +1,8 @@
 public class ConstOverloading {
     public static void main(String[] args) {
-        Overloadable load_one = new Overloadable();
-        Overloadable load_two = new Overloadable("Some", "Data");
-        Overloadable load_three = new Overloadable("Some", "Another", "Data");
+        Overloadable loadOne = new Overloadable();
+        Overloadable loadTwo = new Overloadable("Some", "Data");
+        Overloadable loadThree = new Overloadable("Some", "Another", "Data");
     }
 }
 

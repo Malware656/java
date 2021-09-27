@@ -1,35 +1,9 @@
-// import java.sql.Array;
-// import java.util.ArrayList;
-// import java.util.Iterator;
-// import java.util.LinkedList;
-// import java.util.List;
-
-// public class ArrList {
-//     public static void main(String[] args) {
-//         List<String> list = new ArrayList<String>();
-//         list.add("A");
-//         list.add("B");
-//         list.add("C");
-        
-//         Iterator it = list.iterator();
-//         while(it.hasNext()){
-//             System.out.println(it.next());
-//         }
-
-//         // Linked List
-//         ArrayList linkedList = new LinkedList<>();
-//         list.add("C");
-//         list.add("D");
-//         list.add("E");
-
-//         linkedList.iterator();
-        
-//     }// Java program to demonstrate the
-// working of a HashSet
-
 import java.util.*;
 public class CollectionList {
-	public static void main(String args[])
+	static{
+		System.out.println("Message from static block");
+	}
+	static public void main(String args[])
 	{
 		int count = 10;
 		// ArrayList
@@ -57,7 +31,7 @@ public class CollectionList {
 		duration = endTime - startTime;
 
 		System.out.println("TIME TOOK FOR APPENDING DATA INTO LINKED_LIST:" + duration);
-		Iterator linkedIt = linkedList.iterator();
+		Iterator<Integer> linkedIt = linkedList.iterator();
 		while(linkedIt.hasNext()){
 			System.out.print(linkedIt.next() + " ");
 		}
