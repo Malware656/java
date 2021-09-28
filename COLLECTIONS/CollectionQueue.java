@@ -2,7 +2,7 @@ import java.util.PriorityQueue;
 
 public class CollectionQueue {
     public static void main(String[] args) {
-        PriorityQueue queue = new PriorityQueue<>();
+        PriorityQueue<Character> queue = new PriorityQueue<>();
         String word = "OCCURRENCE";
         for(int i = 0; i < word.length(); i++){
             queue.add(word.charAt(i));
