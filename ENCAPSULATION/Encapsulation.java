@@ -42,9 +42,3 @@ class DataClass{
         this.age = age;
     }
 }
-
-// max chars in a line 246 of a java
-// can give 
-// null data should not be trnasferred
-
-// json ignore 

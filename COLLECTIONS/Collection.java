@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.TreeSet;
 import java.util.Vector;
@@ -17,6 +19,7 @@ public class Collection {
             Why ArrayList ?
 
             Array has fixed length so we cannot add anymore data;
+            Supports Consumer;
 
             int[] some = new int[5];
             int some[] = {1, 2, 3, 4, 5}
@@ -168,6 +171,18 @@ public class Collection {
 
         // Sets
         HashSet<DataModel> hashSet = new HashSet<>();
+        /*
+
+            Set cannot contain duplicates. But allows null to be stored.
+            HashSet does not maintain order. HashSet gives better performance than TreeSet.
+
+            HashSet vs HashMap
+
+            HashSet<T> set = new HashSet<T>(); // can contain only value
+
+            HashMap<T,T> set = new HashSet<>(); // can contain only key and value as a pair
+
+        */
         hashSet.add(new DataModel("THREE", 3));
         hashSet.add(new DataModel("NINE", 9));
         hashSet.add(new DataModel("FOUR", 4));
@@ -177,8 +192,21 @@ public class Collection {
         while(hashIterator.hasNext()){
             System.out.print(hashIterator.next().name + " ");
         }
+        System.out.println("\n");
 
+        // LinkedHashSet
+        LinkedHashSet<DataModel> linkedHashSet = new LinkedHashSet<>();
+
+        linkedHashSet.add(new DataModel("ONE", 1));
+        linkedHashSet.add(new DataModel("TWO", 2));
+        linkedHashSet.add(new DataModel("THREE", 3));
+
+        linkedHashSet.forEach(
+            i -> System.out.println("LinkedHashSet : " + i.name));
+        System.out.println("\n");
         // TreeSet
+
+        TreeSet<String> treeSet = new TreeSet<>();
 
         /*
 
@@ -199,23 +227,20 @@ public class Collection {
             }
             
         */
-        TreeSet<DataModel> treeSet = new TreeSet<>();
-        treeSet.add(new DataModel("THREE", 3));
-        treeSet.add(new DataModel("NINE", 9));
-        treeSet.add(new DataModel("FOUR", 4));
-        treeSet.add(new DataModel("ONE", 1));
-
-
-        Iterator<DataModel> treeIterator = treeSet.iterator();
+        
+        
+        treeSet.addAll(Arrays.asList("ONE", "TWO", "THREE"));
+        Iterator<String> treeIterator = treeSet.descendingIterator();
         while(treeIterator.hasNext()){
-            System.out.print(treeIterator.next().name + " ");
+            System.out.println("Iterator : " + treeIterator.next());
         }
 
+        System.out.println("\n");
         // Alter
+        treeSet.forEach(
+            data -> System.out.println("Consumer : " + data));
 
-        
-
-        // Sets, to be implemented soon
+        // Queue, to be implemented soon
     }
 }
 
