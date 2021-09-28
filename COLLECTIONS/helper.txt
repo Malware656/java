@@ -109,9 +109,7 @@ Collections ext Iterable{
                     }
 
                     docs{
-
                         /*
-
                             Why Vector ?
 
                             Vector is Similar to ArrayList but Vector creates a Sized ArrayList
@@ -159,9 +157,7 @@ Collections ext Iterable{
                 }
                 
                 docs{
-
                     /*
-
                         Set cannot contain duplicates. But allows null to be stored.
                         HashSet does not maintain order. HashSet gives better performance than TreeSet.
 
@@ -181,7 +177,6 @@ Collections ext Iterable{
 
                     * docs {
                         /*
-
                             Why LinkedHashSet ?
 
                             HashSet does not maintain insertion order so we are going for LinkedHashSet
@@ -201,7 +196,6 @@ Collections ext Iterable{
 
                     * docs {
                         /*
-
                             Why TreeSet ?
                             
                             TreeSet stores data in sorted order. And it supports Consumer (i.e) forEach.
@@ -227,6 +221,9 @@ Collections ext Iterable{
     }
 }
 
+
+Map:
+
 Map {
     branches {
 
@@ -248,9 +245,7 @@ Map {
             }
 
             * docs {
-
                 /*
-
                     Why HashMap ?
 
                     HashMap is used to store Key Value pair
@@ -267,9 +262,7 @@ Map {
             }
 
             * docs {
-
                 /*
-
                     Why LinkedHashMap ?
 
                     HashMap doesn’t maintain any order.
@@ -287,7 +280,6 @@ Map {
             }
 
             *docs {
-
                 /*
 
                     Why TreeMap ?

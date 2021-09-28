@@ -204,9 +204,9 @@ public class Collection {
         linkedHashSet.forEach(
             i -> System.out.println("LinkedHashSet : " + i.name));
         System.out.println("\n");
-        // TreeSet
 
-        TreeSet<String> treeSet = new TreeSet<>();
+        // TreeSet
+        TreeSet<DataModel> treeSet = new TreeSet<>();
 
         /*
 
@@ -228,17 +228,19 @@ public class Collection {
             
         */
         
-        
-        treeSet.addAll(Arrays.asList("ONE", "TWO", "THREE"));
-        Iterator<String> treeIterator = treeSet.descendingIterator();
+        treeSet.add(new DataModel("ONE", 1));
+        treeSet.add(new DataModel("TWO", 2));
+        treeSet.add(new DataModel("THREE", 3));
+        // treeSet.addAll(Arrays.asList("ONE", "TWO", "THREE"));
+        Iterator<DataModel> treeIterator = treeSet.descendingIterator();
         while(treeIterator.hasNext()){
-            System.out.println("Iterator : " + treeIterator.next());
+            System.out.println("Iterator : " + treeIterator.next().name);
         }
 
         System.out.println("\n");
         // Alter
         treeSet.forEach(
-            data -> System.out.println("Consumer : " + data));
+            data -> System.out.println("Consumer : " + data.name));
 
         // Queue, to be implemented soon
     }
@@ -246,7 +248,7 @@ public class Collection {
 
 class DataModel implements Comparable{
     String name;
-    int num;
+    Integer num;
 
     public DataModel(String name, int num) {
         this.name = name;
@@ -255,6 +257,6 @@ class DataModel implements Comparable{
 
     @Override
     public int compareTo(Object o) {
-        return 0;
+        return this.num.compareTo(((DataModel) o).num);
     }
 }
