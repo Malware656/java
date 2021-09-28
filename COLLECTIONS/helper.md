@@ -1,0 +1,302 @@
+Collections : 
+Collection of objs or Sequence of objs which are iterable
+
+Collections ext Iterable{
+    funcs(){
+        * Iterator - returns Iterator
+        * size()
+        * isEmpty()
+        * contains()
+        .
+        .
+        .
+        * removeAll()
+    }
+
+    branches{
+
+        types : {
+            * List
+            * Set
+            * Queue
+        }
+        
+        * List {
+            * funcs() // Implementations of Collections
+            branches{
+
+                types : {
+                    * ArrayList
+                    * LinkedList
+                    * Vector
+                }
+
+                * ArrayList ext AbstractList { Implements } List, RandomAccess, Clonable, Serializable {
+                    funcs(){
+                        * Collection functions
+                        * Set(index, value)
+                        .
+                    }
+
+                    docs{
+                        /*
+
+                        Why ArrayList ?
+
+                        Array has fixed length so we cannot add anymore data;
+
+                        int[] some = new int[5];
+                        int some[] = {1, 2, 3, 4, 5}
+                        some.add() // Can't do
+
+                        Grows dynamically and Shrink
+
+                        ArrayList<T> some = new ArrayList<T>();
+                        some.add() // Can do
+                        some.set(index, value)
+
+                        */
+                    }
+                }
+
+                * LinkedList ext AbstractSequentialList { Implements } List, Deque, RandomAccess, Clonable, Serializable {
+                    funcs(){
+                        * Collection functions
+                        * Linking functions
+                        * Deque functions ( poll and peek )
+                        * addFirst, addLast, removeFirst, removeLast, getFirst, getLast, get
+                        * poll, pollFirst, pollLast
+                    }
+
+                    docs{
+                        /*
+
+                        Similar to ArrayList but each element is considers as Node
+                        Each node has a HEAD and TAIL
+
+                        Why LinkedList ?
+
+                        If we want to insert element or to delete an element from ArrayList we have to shift all elements to right to 
+                        allocate memory for the insertion.
+
+                        So it consumes more memory and performance
+
+                        To overcame this things we are going for LinkedLists
+
+                        LinkedList does not require contiguous memory locations, because elements are linked with each other with refs
+                        So but just changing refs we can insert or del an element (i.e Node)
+
+                        LinkedList<String> list=new LinkedList<String>();
+
+                        list.addLast("Rick");
+
+                        Adding an element to the 3rd position
+
+                        list.add(2, "Glenn"); // No need to shift position just changing refs is required
+
+                        list.remove(index)
+
+                        */
+                    }
+                }
+
+                * Vector ext AbstractList { Implements } List, RandomAccess, Clonable, Serializable {
+                    funcs() {
+                        * Collection functions
+                        * addElement, removeElement, setElement ( Synchronised )
+                        * capacity()
+                        * size()
+                    }
+
+                    docs{
+
+                        /*
+
+                        Why Vector ?
+
+                        Vector is Similar to ArrayList but Vector creates a Sized ArrayList
+                        Empty vector size is 10, so when we insert a value above the size of vector.
+                        The size of the vector doubles.
+
+                        Usage:
+
+                            Vector vec = new Vector(); // creates an ArrayList with the size of 10
+                            Vector vec = new Vector(3); // creates an ArrayList with the size of 30
+
+                            Vector vec = new Vector(2, 5); // creates an ArrayList with the size of 20 and when increaments it increases by 5
+
+                            vec.capacity()
+                            vec.size()
+
+                            Enumeration en = vec.elements();
+                            while(en.hasMoreElements())
+                                System.out.print(en.nextElement() + " ");
+
+                        */
+                    }
+                }
+            }
+        }
+
+        * Queue {
+            * funcs() // Implementations of Collections
+        }
+
+        * Set {
+            * funcs() // Implementations of Collections
+            branches{
+
+                types : {
+                    * HashSet
+                    * TreeSet
+                    * LinkedHashSet
+                }
+
+                * HashSet ext AbstractSet { Implements } Set, Clonable, Serializable
+                funcs(){
+                    * size(), isEmpty(), contains(), add(), remove(), clear(), clone()
+                    * writeObject(), readObject()
+                }
+                
+                docs{
+
+                    /*
+
+                    Set cannot contains duplicates. But allows null to be stored.
+                    HashSet does not maintain order. HashSet gives better performance than TreeSet.
+
+                    HashSet vs HashMap
+
+                    HashSet<T> set = new HashSet<T>(); // can contain only value
+
+                    HashMap<T,T> set = new HashSet<>(); // can contain only key and value as a pair
+
+                    */
+                }
+
+                * LinkedHashSet ext HashSet { Implements } Set, Clonable, Serializable {
+                    * funcs(){
+                        * SomeFuncs()
+                    }
+
+                    * docs {
+                        /*
+
+                        Why LinkedHashSet ?
+
+                        HashSet does not maintain insertion order so we are going for LinkedHashSet
+
+                        usage:
+
+                            LinkedHashSet<T> some = new LinkedHashSet<T>();
+
+                        */
+                    }
+                }
+
+                * TreeSet ext AbstractSet { Implements } NavigatableSet, Clonable, Serializable {
+                    * funcs(){
+                        * SomeFuncs()
+                    }
+
+                    * docs {
+                        /*
+
+                        Why TreeSet ?
+                        
+                        TreeSet stores data in sorted order.
+
+                        TreeSet<E> treeSet = new TreeSet<>():
+
+                        E must be a child of Comparable class
+
+                        eg: 
+                        TreeSet<CustomModel> treeSet = new TreeSet<>(); // Throws error as CustomModel is not a child of Comparable
+                        
+                        */
+                    }
+                }
+            }
+        }
+
+        * Queue {
+            branches {
+                * funcs of LinkedList()
+            }
+        }
+    }
+}
+
+Map {
+    branches {
+
+        types : {
+            * HashTable
+            * HashMap
+            * LinkedHashMap
+            * TreeMap
+        }
+
+        *HashTable {
+            // Look into it Later!!!
+        }
+        
+        * HashMap {
+            * funcs(){
+                * put(Key, Value)
+                * get(index)
+            }
+
+            * docs {
+
+                /*
+
+                Why HashMap ?
+
+                HashMap is used to store Key Value pair
+                Allows null for keys and values
+
+                */
+            }
+        }
+
+        * LinkedHashMap {
+            * funcs() {
+                *put(Key, Value)
+                * get(key)
+            }
+
+            * docs {
+
+                /*
+
+                    Why LinkedHashMap ?
+
+                    HashMap doesn’t maintain any order.
+                    TreeMap sort the entries in ascending order of keys.
+                    LinkedHashMap maintains the insertion order.
+
+                */
+            }
+        }
+
+        * TreeMap {
+            * funcs() {
+                * put(key, Value)
+                * get(Key)
+            }
+
+            *docs {
+
+                /*
+
+                Why TreeMap ?
+
+                Stores values in Ascending order of its keys.
+
+                */
+            }
+        }
+    }
+}
+    
