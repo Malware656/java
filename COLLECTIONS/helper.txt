@@ -1,7 +1,7 @@
 Collections : 
 Collection of objs or Sequence of objs which are iterable
 
-Collections ext Iterable{
+Collection { Implements } Iterable{
     funcs(){
         * Iterator - returns Iterator
         * size()
@@ -35,7 +35,6 @@ Collections ext Iterable{
                     funcs(){
                         * Collection functions
                         * Set(index, value)
-                        .
                     }
 
                     docs{
@@ -65,7 +64,8 @@ Collections ext Iterable{
                         * Linking functions
                         * Deque functions ( poll and peek )
                         * addFirst, addLast, removeFirst, removeLast, getFirst, getLast, get
-                        * poll, pollFirst, pollLast
+                        * poll, pollFirst, pollLast, pop, peek
+                        * element
                     }
 
                     docs{
@@ -95,6 +95,9 @@ Collections ext Iterable{
                             list.add(2, "Glenn"); // No need to shift position just changing refs is required
 
                             list.remove(index)
+
+                            list.peek() // Returns First element. If empty list returns null
+                            list.element() // Throws NoSuchElementException if empty list.
 
                         */
                     }
@@ -234,8 +237,32 @@ Map {
             * TreeMap
         }
 
+        * docs {
+
+            /*
+                Hash does not support Iterator.
+
+            */
+        }
+
         *HashTable {
             // Look into it Later!!!
+
+            *docs {
+                /*
+                    K - Key
+                    V - Value
+                    E - Element
+                    T - Generic Type obj
+
+                    HashTable<K, V> hashTable = new HashTable<>();
+                    hashTable.put(K, V);
+                    // Can't do
+                    hashTable.put(null, V);
+                    hashTable.put(K, null);
+                */
+            }
+
         }
         
         * HashMap {
@@ -281,11 +308,8 @@ Map {
 
             *docs {
                 /*
-
                     Why TreeMap ?
-
                     Stores values in Ascending order of its keys.
-
                 */
             }
         }

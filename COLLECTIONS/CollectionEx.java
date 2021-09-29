@@ -8,12 +8,13 @@ import java.util.LinkedList;
 import java.util.TreeSet;
 import java.util.Vector;
 
-public class Collection {
+
+public class CollectionEx {
     public static void main(String[] args) {
         
         // ArrayList 
         ArrayList<String> arrList = new ArrayList<>();
-
+        
         /*
 
             Why ArrayList ?
@@ -101,8 +102,15 @@ public class Collection {
         linkedList.addFirst("ONE");
         linkedList.addLast("THREE");
 
+        System.out.println("LINKED LIST:" + linkedList.element());
+
+        // linkedList.clear();
         // New methods exclusive for LinkedList
-        // Returns just the First element;
+        // Returns first element. If empty throws NoSuchElementException
+        // ------------------------ //
+        linkedList.element();
+        
+        // Returns just the First element; If empty returns null
         System.out.println(linkedList.peek());
 
         // Pushes data to LinkedList to the start
@@ -112,6 +120,9 @@ public class Collection {
         linkedList.pop();
         System.out.println("POP:" + linkedList);
         
+        // Removes the HEAD
+        linkedList.poll();
+
         // Returns First element and removes it from List
         linkedList.pollFirst();
         System.out.println(linkedList);
@@ -147,6 +158,12 @@ public class Collection {
 
         */
 
+        // Returns True (add is boolean)
+        // Interface of List
+        vectorList.add("TEST_STRING");
+
+        // No return (addeElement is void)
+        // Interface of Synchronized List
         vectorList.addElement("ONE");
         vectorList.addElement("TWO");
         vectorList.addElement("THREE");
@@ -203,7 +220,7 @@ public class Collection {
 
         linkedHashSet.forEach(
             i -> System.out.println("LinkedHashSet : " + i.name));
-        System.out.println("\n");
+        System.out.println();
 
         // TreeSet
         TreeSet<DataModel> treeSet = new TreeSet<>();
@@ -232,21 +249,32 @@ public class Collection {
         treeSet.add(new DataModel("TWO", 2));
         treeSet.add(new DataModel("THREE", 3));
         // treeSet.addAll(Arrays.asList("ONE", "TWO", "THREE"));
-        Iterator<DataModel> treeIterator = treeSet.descendingIterator();
-        while(treeIterator.hasNext()){
-            System.out.println("Iterator : " + treeIterator.next().name);
-        }
 
-        System.out.println("\n");
-        // Alter
-        treeSet.forEach(
-            data -> System.out.println("Consumer : " + data.name));
+        // Strores list in sorted order only upto the given Value
+        TreeSet<DataModel> headSet = new TreeSet<>();
+
+        // headSet(obj, inclusive: boolean)
+        headSet = (TreeSet<DataModel>) treeSet.headSet(new DataModel("THREE", 3), true);
+
+        Iterator<DataModel> treeIterator = headSet.iterator();
+        while(treeIterator.hasNext()){
+            System.out.println("Head Iterator : " + treeIterator.next().name);
+        }
+        
+        // Sorts and store data in list from the bottom upto the specified tail
+        TreeSet<DataModel> tailSet = new TreeSet<>();
+        tailSet = (TreeSet<DataModel>) treeSet.tailSet(new DataModel("TWO", 2));
+        
+        Iterator<DataModel> tailIterator = tailSet.iterator();
+        while(tailIterator.hasNext()){
+            System.out.println("Tail Iterator : " + tailIterator.next().name);
+        }
 
         // Queue, to be implemented soon
     }
 }
 
-class DataModel implements Comparable{
+class DataModel implements Comparable<DataModel>{
     String name;
     Integer num;
 
@@ -256,7 +284,7 @@ class DataModel implements Comparable{
     }
 
     @Override
-    public int compareTo(Object o) {
-        return this.num.compareTo(((DataModel) o).num);
+    public int compareTo(DataModel o) {
+        return this.num.compareTo(o.num);
     }
 }
